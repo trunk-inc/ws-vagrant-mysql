@@ -1,4 +1,4 @@
-#!/bin/bash -lu
+#!/bin/bash
 sudo apt-get update
 
 # MySQL
@@ -8,3 +8,7 @@ sudo debconf-set-selections <<< "mysql-server-5.6 mysql-server/root_password pas
 sudo debconf-set-selections <<< "mysql-server-5.6 mysql-server/root_password_again password \"''\""
 
 sudo apt-get install -y mysql-server-5.6 
+
+# setup working db
+cd ~/work 
+./setup-db.sh

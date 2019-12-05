@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+  echo "実行するには2個の引数が必要です。" 1>&2
+  echo "setup <セクション名> <テーブル名> を実行してください" 1>&2
+  exit 1
+fi
+
+echo ">>> セクション名: " $1
+echo ">>> テーブル名: " $2
+mysql -u root ws < ./sql/$1/$2.sql
+
+if [ $? -ne 0 ]; then
+  echo "エラーが発生しました" 1>&2
+  exit 1
+fi
+
+echo '準備が完了しました'

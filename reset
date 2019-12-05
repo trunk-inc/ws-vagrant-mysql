@@ -1,0 +1,15 @@
+#!/bin/bash
+mysql -u root < ./sql/common/drop-db.sql
+
+if [ $? -ne 0 ]; then
+  echo "エラーが発生しました" 1>&2
+  exit 1
+fi
+
+mysql -u root < ./sql/common/create-db.sql
+
+if [ $? -ne 0 ]; then
+  echo "エラーが発生しました" 1>&2
+  exit 1
+fi
+echo 'データベースを初期化しました'
