@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS exam_result;
+DROP TABLE IF EXISTS student;
+
 CREATE TABLE IF NOT EXISTS student (
     student_id INT, 
     name VARCHAR(100),
